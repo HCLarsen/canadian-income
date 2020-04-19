@@ -1,14 +1,20 @@
 <template>
   <div id="app">
+    <h1>{{title}}</h1>
     <Comparator/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/Comparator.vue'
+import Comparator from './components/Comparator.vue'
 
 export default {
   name: 'App',
+  data() {
+    return {
+      title: 'Canadian Income Comparator'
+    }
+  },
   components: {
     Comparator
   }
