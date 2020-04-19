@@ -41,7 +41,6 @@ export default {
       var position = -1;
       this.values.forEach((value, i) => {
         if (value.max > this.income && position == -1) {
-          console.log('Returning');
           position = i;
         }
       });
