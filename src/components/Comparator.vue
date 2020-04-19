@@ -15,7 +15,7 @@ export default {
   name: 'Comparator',
   data() {
     return {
-      description: `<p>Ever want to know where your income sits compared to other Canadians? Want to shut up your rich friends when they claim they're not rich?</p>\n<p>Simply enter your (or anyone's) yearly income for tax year ${year} into the box below, and you'll see where that income sits against other Canadians.</p>`,
+      description: `<p>Ever want to know where your income sits compared to other Canadians? Want to shut up your rich friends when they claim they're not rich?</p>\n<p>Simply enter your (or anyone's) yearly income for tax year ${year} into the box below, and you'll see where that income sits against that of other Canadians.</p>`,
       income: 0,
 
       year,
@@ -28,9 +28,9 @@ export default {
       var number = Number(this.income);
       if (!isNaN(number) && number > 0) {
         if (this.above > this.below) {
-          return `With a yearly salary of ${this.currency(number)}, you make less money than over ${this.percent(this.above/this.total)} of Canadians.`;
+          return `With a yearly salary of ${this.currency(number)}, you make less money than over ${this.percent(this.above)} of Canadians.`;
         } else {
-          return `With a yearly salary of ${this.currency(number)}, you make more money than over ${this.percent(this.below/this.total)} of Canadians.`;
+          return `With a yearly salary of ${this.currency(number)}, you make more money than over ${this.percent(this.below)} of Canadians.`;
         }
       } else {
         return 'Please enter numbers only. Dollar signs and commas are unnecessary.';
@@ -38,19 +38,22 @@ export default {
       }
     },
     position() {
-      var position = -1;
+      var position = -2;
       this.values.forEach((value, i) => {
-        if (value.max > this.income && position == -1) {
+        if (value.max > this.income && position == -2) {
           position = i;
         }
       });
       return position;
     },
     below() {
-      return this.numbers.slice(0, this.position).reduce((accumulator, currentValue) => { return accumulator + currentValue }, 0);
+      var number = this.numbers.slice(0, this.position + 1).reduce((accumulator, currentValue) => { return accumulator + currentValue }, 0);
+      return number / this.total;
     },
     above() {
-      return this.numbers.slice(this.position).reduce((accumulator, currentValue) => { return accumulator + currentValue }, 0);
+      var numbers = this.numbers.slice(this.position + 1)
+      var number = numbers.reduce((accumulator, currentValue) => { return accumulator + currentValue }, 0);
+      return number / this.total;
     },
     numbers() {
       return this.values.map(value => {
