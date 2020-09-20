@@ -1,4 +1,4 @@
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production' ? "/vue-calendar" : "",
+  publicPath: process.env.NODE_ENV === 'production' ? "/canadian-income" : "",
   outputDir: "docs"
 };
