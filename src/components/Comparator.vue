@@ -67,15 +67,15 @@ export default {
       if (this.income <= 0) {
         return "";
       } else if (this.above > 0.8) {
-        return "You don't make a lot of money. Hopefully you're only working part time, and studying to find a better career. If you're making this income at full time, then you're very poor. In fact, your low income is an expression of society's failure. You have every right to demand more money.";
+        return "You make very little money. At this low level, it's most likely that you're working part time. If you're making this income at full time, then you have a very low income. In fact, your low income is an expression of society's failure. You have every right to demand more money.";
       } else if (this.above > 0.60) {
         return "You're poor. There's no way to sugarcoat it. Your income reflects the failure of our economy to ensure that everyone is making a liveable wage.";
       } else if (this.above > 0.5) {
-        return "You're below the halfway mark. More than half of Canadians make more money than you. You're definitely not very well off, but things could be much worse, as they are for a great deal of Canadians."
+        return "You're below the halfway mark. More than half of Canadians make more money than you. You're definitely not very well off, but there also a lot of Canadians that are worse off than you."
       } else if (this.below > 0.98) {
         return "You're obscenely rich. With an income this high, there's a very good chance that you're part of the 1%. You know, one of those people that were the reason for all the occupy protests? Yeah, that's your fault.";
       } else if (this.below > 0.8) {
-        return "You're upper class. You make more money than 80% of Canadians. There's no good reason for you to be wanting for more money. In fact, increasing wages for people as rich as you has been shown to make things more difficult for those in the lower income ranges. So instead of complaining that your car or house isn't expensive enough, try being grateful for having so much already.";
+        return `You're rich. There's no denying it. You make more money than the mass majority of Canadians. There's no good reason for you to want a higher income. In fact, research has shown that increasing wages for people in your income bracket makes things more difficult for those in the lower income ranges. So instead of complaining that your car or house isn't expensive enough, try being grateful for having so much already.`;
       } else {
         return "You're neither rich nor poor. You're a solid middle class worker. As long as you're reasonably smart about your money, and don't have unexpected financial problems, you can easily afford a reasonable standard of living.";
       }
